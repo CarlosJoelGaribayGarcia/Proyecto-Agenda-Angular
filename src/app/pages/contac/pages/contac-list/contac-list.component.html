@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onNewContacto()">Agregar Contacto</button>
+  </div>
+</div>
+<hr>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre del Contacto</th>
+          <th>Apellido del Contacto</th>
+          <th>Empresa</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let contactoEl of contact | paginate: { itemsPerPage: limit, currentPage: p, totalItems: contactCount }; let i = index">
+          <td>{{contactoEl.contactId}}</td>
+          <td>{{contactoEl.contactFirstName}}</td>
+          <td>{{contactoEl.contactLastName}}</td>
+          <td>{{contactoEl.contactCompany}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="onContactSelected(contactoEl)">Detalles</button> |
+            <button class="btn btn-danger" (click)="onDeleteContact(contactoEl)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <pagination-controls (pageChange)="onPageChange($event)" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+  </div>
+</div>
+

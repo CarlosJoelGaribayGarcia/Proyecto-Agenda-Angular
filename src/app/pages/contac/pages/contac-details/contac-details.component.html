@@ -1,0 +1,79 @@
+
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-md-6">
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <span class="info-label">Id:</span>
+        <span class="info-value">{{ contacto.contactId }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Nombre de Contacto:</span>
+        <span class="info-value">{{ contacto.contactFirstName }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Apellido de Contacto:</span>
+        <span class="info-value">{{ contacto.contactLastName }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Empresa:</span>
+        <span class="info-value">{{ contacto.contactCompany }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Cumpleaños:</span>
+        <span class="info-value">{{ contacto.contactBirthday }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Notes:</span>
+        <span class="info-value">{{ contacto.contactNotes }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Alias:</span>
+        <span class="info-value">{{ contacto.contactAlias }}</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Foto:</span>
+        <img [src]="contacto.contactPhoto" alt="{{ contacto.contactFirstName }}" class="contact-photo">
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Correos Electrónicos:</span>
+        <ul>
+          <ng-container *ngIf="contacto?.contactEmails?.length > 0; else noEmails">
+            <li *ngFor="let email of contacto?.contactEmails">
+              {{ email.emailValue }}
+            </li>
+          </ng-container>
+        </ul>
+        <ng-template #noEmails>Sin Registro</ng-template>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Etiquetas:</span>
+        <ul>
+          <ng-container *ngIf="contacto?.contactTags?.length > 0; else noTags">
+            <li *ngFor="let tag of contacto?.contactTags">
+              {{ tag.tagValue }}
+            </li>
+          </ng-container>
+        </ul>
+        <ng-template #noTags>Sin Registro</ng-template>
+      </div>
+      <div class="contact-info-item">
+        <span class="info-label">Números de Teléfono:</span>
+        <ul>
+          <ng-container *ngIf="contacto?.contactPhones?.length > 0; else noPhones">
+            <li *ngFor="let phone of contacto?.contactPhones">
+              {{ phone.phoneType }}: {{ phone.phoneValue }}
+            </li>
+          </ng-container>
+        </ul>
+        <ng-template #noPhones>Sin Registro</ng-template>
+      </div>
+    </div>
+    <div class="text-center">
+      <div class="button-group">
+        <button class="btn btn-primary edit-button" (click)="onEditContac()">Editar Contacto</button>
+        <button class="btn btn-danger delete-button" (click)="onCancel()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,79 @@
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+border: 1px solid red;
+}
+
+.input-with-image {
+  display: flex;
+  align-items: center;
+}
+
+.input-with-image .form-control {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.input-with-image .preview-image {
+  width: 50px;
+  height: 50px;
+}
+
+.input-error {
+  border: 1px solid red !important;
+}
+
+/* Estilo para los mensajes de error */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block; /* Mostrar los mensajes de error como bloques */
+}
+
+/* Estilo para el botón Agregar más correos */
+.btn-add-email {
+  margin-top: 10px;
+}
+
+/* Estilo para la vista previa de la imagen */
+.preview-image {
+  margin-top: 10px;
+}
+
+/* Estilo para el botón de acción del correo */
+.email-action-button {
+  margin-left: 5px;
+}
+
+/* Estilo para los íconos de los botones de acción */
+.email-action-icon {
+  margin-right: 5px;
+}
+
+.phone-item {
+  margin-bottom: 20px; /* Espaciado entre cada elemento del listado de teléfonos */
+  padding: 10px; /* Espaciado interno del elemento del teléfono */
+  border: 1px solid #ccc; /* Borde alrededor del teléfono */
+  border-radius: 4px; /* Bordes redondeados */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+}
+
+.phone-content {
+  display: flex;
+  align-items: center;
+}
+
+.phone-content span {
+  margin-left: 10px; /* Espacio entre el icono y el número de teléfono */
+}
+
+.phone-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.phone-buttons button {
+  margin-left: 10px; /* Espaciado entre los botones de "Eliminar" y "Editar" */
+}

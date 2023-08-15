@@ -1,0 +1,47 @@
+.button-group button {
+  margin-right: 40px; /* Ajusta el valor según el espaciado deseado */
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.contact-info-item {
+  margin-bottom: 10px;
+}
+
+.info-label {
+  font-weight: bold;
+  display: inline-block;
+  width: 150px;
+}
+
+.info-value {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.contact-photo {
+  max-height: 60px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.edit-button {
+  margin-right: 10px;
+}
+
+.delete-button {
+  color: white;
+  background-color: red;
+}

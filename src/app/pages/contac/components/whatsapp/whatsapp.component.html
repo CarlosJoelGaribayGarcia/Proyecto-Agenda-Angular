@@ -1,0 +1,32 @@
+<br>
+<div class="phone-input-container" [formGroup]="phoneForm">
+  <img src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Whatsapp_glyph_svg-128.png" class="phone-icon">
+
+  <div class="phone-input">
+    <input type="text" formControlName="clavePais" class="clave-pais" [ngClass]="{ 'error': phoneForm.get('clavePais').invalid && phoneForm.get('clavePais').touched }">
+    <div *ngIf="phoneForm.get('clavePais').touched && phoneForm.get('clavePais').invalid" class="error-message">
+      <div *ngIf="phoneForm.get('clavePais').errors.required">La clavePaís es requerida.</div>
+      <div *ngIf="phoneForm.get('clavePais').errors.pattern">Clave país incorrecta (números hasta 3 caracteres).</div>
+    </div>
+  </div>
+
+  <div class="phone-input">
+    <input type="text" formControlName="lada" class="lada" [ngClass]="{ 'error': phoneForm.get('lada').invalid && phoneForm.get('lada').touched }">
+    <div *ngIf="phoneForm.get('lada').touched && phoneForm.get('lada').invalid" class="error-message">
+      <div *ngIf="phoneForm.get('lada').errors.required">La lada es requerida.</div>
+      <div *ngIf="phoneForm.get('lada').errors.pattern">Lada incorrecta (números hasta 3 caracteres).</div>
+    </div>
+  </div>
+
+  <div class="phone-input">
+    <input type="text" formControlName="telefono" class="telefono" [ngClass]="{ 'error': phoneForm.get('telefono').invalid && phoneForm.get('telefono').touched }">
+    <div *ngIf="phoneForm.get('telefono').touched && phoneForm.get('telefono').invalid" class="error-message">
+      <div *ngIf="phoneForm.get('telefono').errors.required">El teléfono es requerido.</div>
+      <div *ngIf="phoneForm.get('telefono').errors.pattern">Teléfono incorrecto (números hasta 7 caracteres).</div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-danger" (click)="addPhone()">Cancelar</button> |
+  <button type="button" class="btn btn-success" (click)="addPhone()" [disabled]="phoneForm.invalid">Agregar Teléfono</button>
+</div>
+<br>

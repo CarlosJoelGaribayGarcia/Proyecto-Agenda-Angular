@@ -1,0 +1,14 @@
+.contact-container {
+  display: flex;
+  align-items: center;
+}
+
+.contact-link {
+  cursor: pointer;
+  flex-grow: 1;
+  text-decoration: none;
+}
+
+.delete-button {
+  margin-left: 10px;
+}

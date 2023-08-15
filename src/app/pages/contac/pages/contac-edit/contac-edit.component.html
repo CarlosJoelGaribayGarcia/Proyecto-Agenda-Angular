@@ -1,0 +1,228 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!contactForm?.valid"
+          >
+            Guardar
+          </button>
+          |
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="id">Id</label>
+            <input
+              type="number"
+              id="id"
+              [formControlName]="keyId"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              [formControlName]="keyName"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input
+              type="text"
+              id="lastName"
+              [formControlName]="keyLastName"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="company">Empresa</label>
+            <input
+              type="text"
+              id="company"
+              [formControlName]="keyCompany"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="company">Cumpleaños</label>
+            <input
+              type="date"
+              id="birthday"
+              [formControlName]="keyBirthday"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="company">Notas</label>
+            <input
+              type="text"
+              id="notes"
+              [formControlName]="keyNotes"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="company">Alias</label>
+            <input
+              type="text"
+              id="alias"
+              [formControlName]="keyAlias"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Imagen</label>
+            <div class="input-with-image">
+            <input
+              type="file"
+              accept="image/*"
+              id="photo"
+              class="form-control"
+              (change)="onFileSelected($event)"
+              required/>
+              <img
+              *ngIf="imagePreview"
+              [src]="imagePreview"
+              alt="Vista previa de la imagen"
+              class="preview-image"
+              style="width: 50px; height: 50px;"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <label for="email">Correo</label>
+          <div class="row" *ngFor="let email of getEmailsControls(); let i = index">
+            <div class="col-xs-8">
+              <input
+                type="text"
+                class="form-control"
+                [formControl]="email.get('emailValue')"
+                [readonly]="!email.get('editing').value"
+                [ngClass]="{ 'input-error': email.get('emailValue').invalid && email.get('emailValue').touched }"
+              />
+              <div class="error-message" *ngIf="email.get('emailValue').invalid && email.get('emailValue').touched">
+                <div *ngIf="email.get('emailValue').errors.required">El correo es requerido.</div>
+                <div *ngIf="email.get('emailValue').errors.pattern">Correo inválido. Por favor, ingrese un correo válido.</div>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <button type="button" class="btn btn-danger" (click)="onDeleteEmail(i)">X</button> |
+              <button type="button" class="btn btn-primary" (click)="onEditEmail(email)">Editar</button>
+            </div>
+          </div>
+          <br/>
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-success" (click)="onAddEmail()">Agregar más correos</button>
+            </div>
+          </div>
+          <br/>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="tags">Etiquetas</label>
+            <div *ngFor="let tag of getTagsControls(); let i = index" class="tag-item">
+              <input type="text" [formControl]="tag.get('tagValue')" class="form-control" />
+              <button type="button" class="btn btn-danger" (click)="onDeleteTag(i)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="tags">Etiquetas</label>
+            <ul>
+              <li class="phone-item" *ngFor="let tag of contactForm.get(keyTags).value; let i = index">
+                <div class="phone-content">
+                  <span>{{ tag.tagValue }}</span>
+                </div>
+                <div class="phone-buttons">
+                  <button type="button" class="btn btn-danger" (click)="onDeleteTag(i)">Eliminar</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" class="btn btn-primary" (click)="openTagDialog()">Lista de Etiquetas</button>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="phones">Números de Teléfono</label>
+            <ul>
+              <li class="phone-item" *ngFor="let phone of contactForm.get(keyPhones).value; let i = index">
+                <div class="phone-content">
+                  <img [src]="getPhoneImage(phone.phoneType)" alt="Icono de teléfono" class="phone-image" style="width: 30px; height: 30px;">
+                  <span>{{ phone.phoneValue }}</span>
+                </div>
+                <div class="phone-buttons">
+                  <button type="button" class="btn btn-danger" (click)="onDeletePhone(i)">Eliminar</button>
+                  <button type="button" class="btn btn-primary" (click)="onEditPhone(phone,i)">Editar</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <button type="button" class="btn btn-success" (click)="addPhone('phone')">Agregar Teléfono Casa</button> |
+          <button type="button" class="btn btn-success" (click)="addPhone('mobile')">Agregar Teléfono Mobile</button> |
+          <button type="button" class="btn btn-success" (click)="addPhone('whatsapp')">Agregar Teléfono Whatsapp</button>
+        </div>
+      </div>
+      <div #phoneContainer></div>
+      <div #movilContainer></div>
+      <div #whatsappContainer></div>
+      <br>

@@ -1,0 +1,34 @@
+.custom-dialog {
+  background-color: #ffffff;
+}
+
+.tag-list {
+  overflow: auto; /* Habilitar el desplazamiento vertical */
+  max-height: 200px; /* Establecer la altura máxima de la lista para que aparezca la barra de desplazamiento */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaciado entre etiquetas */
+}
+
+.tag-item {
+  border: 1px solid #ccc; /* Borde alrededor de la etiqueta */
+  padding: 10px; /* Espaciado interno del elemento de etiqueta */
+  border-radius: 4px; /* Bordes redondeados */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+}
+
+.tag-content {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaciado entre elementos del tag-content */
+}
+
+.form-group {
+  margin-top: 20px; /* Ajusta el espaciado entre las etiquetas y la sección de agregar nueva etiqueta */
+}
+
+.text-right {
+  margin-top: 20px; /* Ajusta el espaciado entre la sección de agregar nueva etiqueta y los botones */
+}

@@ -1,0 +1,46 @@
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.clave-pais {
+  width: 60px;
+}
+
+.lada {
+  width: 60px;
+}
+
+.telefono {
+  width: 150px;
+}
+
+/* Agrega estilo a los mensajes de error */
+.error-message {
+  color: red;
+  font-size: 10px;
+  margin-top: 5px;
+  position: relative;
+  display: block;
+}
+
+.phone-input {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+
+

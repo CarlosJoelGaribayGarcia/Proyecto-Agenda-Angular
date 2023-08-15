@@ -1,0 +1,51 @@
+/* about.component.css */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.about-content {
+  max-width: 800px;
+  text-align: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  margin-bottom: 30px;
+}
+
+.about-image {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.about-description {
+  margin-bottom: 30px;
+}
+
+.features-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.features ul {
+  list-style-type: disc;
+  margin-left: 30px;
+}
+
+.thanks {
+  font-size: 18px;
+  font-style: italic;
+}

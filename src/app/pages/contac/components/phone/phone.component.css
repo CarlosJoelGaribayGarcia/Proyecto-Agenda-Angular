@@ -1,0 +1,34 @@
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+.phone-input {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.telefono {
+  width: 150px;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 10px;
+  margin-top: 5px;
+  position: relative;
+  display: block;
+}

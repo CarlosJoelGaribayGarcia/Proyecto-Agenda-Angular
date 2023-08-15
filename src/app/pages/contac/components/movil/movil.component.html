@@ -1,0 +1,24 @@
+
+<br>
+<div class="phone-input-container" [formGroup]="phoneForm">
+  <img src="https://cdn3.iconfinder.com/data/icons/smoothfill-device/30/device_001-smartphone-phone-mobile-cellphone-tel-iphone-128.png" class="phone-icon">
+
+  <div class="phone-input">
+    <input type="text" formControlName="lada" class="lada" [ngClass]="{ 'error': phoneForm.get('lada').invalid && phoneForm.get('lada').touched }">
+    <div *ngIf="phoneForm.get('lada').touched && phoneForm.get('lada').invalid" class="error-message">
+      <span *ngIf="phoneForm.get('lada').errors.required">La lada es requerida.</span>
+      <span *ngIf="phoneForm.get('lada').errors.pattern">Lada incorrecta (números hasta 3 caracteres).</span>
+    </div>
+  </div>
+
+  <div class="phone-input">
+    <input type="text" formControlName="telefono" class="telefono" [ngClass]="{ 'error': phoneForm.get('telefono').invalid && phoneForm.get('telefono').touched }">
+    <div *ngIf="phoneForm.get('telefono').touched && phoneForm.get('telefono').invalid" class="error-message">
+      <span *ngIf="phoneForm.get('telefono').errors.required">El teléfono es requerido.</span>
+      <span *ngIf="phoneForm.get('telefono').errors.pattern">Teléfono incorrecto (números hasta 7 caracteres).</span>
+    </div>
+  </div>
+  <button type="button" class="btn btn-danger" (click)="addPhone()">Cancelar</button> |
+  <button type="button" class="btn btn-success" (click)="addPhone()" [disabled]="phoneForm.invalid">Agregar Teléfono</button>
+</div>
+<br>

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand">Agenda de Contactos </a>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-nav"  routerLink="/contac"> Contactos ({{ contactCount }})</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu de Opciones</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+      <li class="nav-item text-center mb-3">
+        <a (click)="onEditUser()" style="cursor: pointer">
+        <img class="nav-user-photo" [src]="userData?.userPhoto" alt="Foto De Usuario" style="width: 40px; height: 40px;">
+      </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer">{{ userData?.userFullName }} </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer">{{ userData?.userEmail }}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/contac" style="cursor: pointer">Contactos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer" (click)="onAbout()">Acerca de</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer " (click)="onLogOut()">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+</div>

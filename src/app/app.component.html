@@ -1,0 +1,8 @@
+<app-toolbar *ngIf="!(isLoginRoute() && isToolbarHidden())"></app-toolbar>
+<div class="container">
+<div class="row">
+  <div class="col-xs-12">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

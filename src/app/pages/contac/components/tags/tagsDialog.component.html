@@ -1,0 +1,25 @@
+<div class="custom-dialog">
+  <div class="text-center">
+    <h2>Lista de Etiquetas</h2>
+  </div>
+  <div class="tag-list">
+    <div *ngFor="let tag of tags" class="tag-item">
+      <div class="tag-content">
+        <input type="checkbox" [checked]="tag.selected" (change)="tag.selected = !tag.selected">
+        <span>{{ tag.tagValue }}</span>
+      </div>
+      <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteTag(tag)">X</button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="newTag">Nueva Etiqueta</label>
+    <input type="text" class="form-control" id="newTag" [(ngModel)]="newTag" (click)="onAddTag()">
+    <button type="button" class="btn btn-primary" (click)="onAddTag()">Agregar</button>
+  </div>
+
+  <div class="text-right">
+    <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button> |
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+  </div>
+</div>
